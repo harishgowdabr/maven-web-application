@@ -21,7 +21,7 @@ def mavenHome = tool name: "maven 3.6.2"
 	
 	} // stage nexus
 	
-	stage('DeploytheAppIntoTomcat'){
+	stage('DeploytheAppIntoTomcat1'){
 	 sshagent(['bfe5536c-540c-44f6-9b9f-522e563ebf96']){
     sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@54.146.244.68:/opt/apache-tomcat-9.0.53/webapps"
 	}//ssh
