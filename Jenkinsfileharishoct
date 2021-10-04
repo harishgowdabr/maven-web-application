@@ -29,12 +29,12 @@ properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKe
 	}//ssh
 	} //stage  tomcat
 	
-	stage('SendEmailNotification'){
+	/* stage('SendEmailNotification'){
 	mail bcc: 'harishkumarbr8@gmail.com', body: '''Build Over.
 
     Thanks,
       ASG''', cc: 'harishkumarbr8@gmail.com', from: '', replyTo: '', subject: 'BuuildOver!!!', to: 'harishkumarbr8@gmail.com'
     }
 
-
+*/
 	}// node
