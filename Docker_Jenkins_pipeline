@@ -12,7 +12,7 @@ node {
     }
     
     stage ('dockerbuild'){
-        sh "docker build -t harishkumarbr/java-web-app-docker:${BUILD_NUMBER} ."
+        sh "docker build -t harishkumarbr/maven-web-application:${BUILD_NUMBER} ."
     }
      stage ('Docker login and push'){
          withCredentials([string(credentialsId: 'Docker_hub_pwd', variable: 'Docker_Hub_pwd')]) {
