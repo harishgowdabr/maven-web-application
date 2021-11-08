@@ -18,7 +18,7 @@ node {
          withCredentials([string(credentialsId: 'Docker_hub_pwd', variable: 'Docker_Hub_pwd')]) {
     sh "docker login -u harishkumarbr -p ${Docker_Hub_pwd}"
 }
-  sh "docker push harishkumarbr/java-web-app-docker:${BUILD_NUMBER}"
+  sh "docker push harishkumarbr/maven-web-application:${BUILD_NUMBER}"
          
      }
      
@@ -26,7 +26,7 @@ node {
      {
          sshagent(['Docker_Server']) {
    sh "ssh -o strictHostKeyChecking=no ubuntu@15.206.168.44 docker rm -f mavenwebapp || true"
-   // sh "ssh -o strictHostKeyChecking=no ubuntu@15.206.168.44 docker rmi -f  harishkumarbr/maven-web-application:${BUILD_NUMBER-1}
+   sh "ssh -o strictHostKeyChecking=no ubuntu@15.206.168.44 docker rmi -f  harishkumarbr/maven-web-application:${BUILD_NUMBER}
    sh "ssh -o strictHostKeyChecking=no ubuntu@15.206.168.44 docker run -d -p 7070:8080 --name mavenwebapp harishkumarbr/maven-web-application:${BUILD_NUMBER}"
 }
      }
