@@ -25,12 +25,12 @@ node {
      
      stage ('Deploy App As DockerConatiner in Docker Dev Server')
      {
-         def buildNum = expr ${buildNumber} - 1
+        def buildNum = expr ${buildNumber} - 1
    
          sshagent(['Docker_Server']) {
    sh "ssh -o strictHostKeyChecking=no ubuntu@15.206.168.44 docker rm -f mavenwebapp || true"
    echo "Removed Old Container"
-   echo "$buildNum"
+   echo "${buildNum}"
    sh "ssh -o strictHostKeyChecking=no ubuntu@13.234.186.211 docker rmi -f  harishkumarbr/maven-web-application:${buildNum}"
    sh "ssh -o strictHostKeyChecking=no ubuntu@15.206.168.44 docker run -d -p 7070:8080 --name mavenwebapp harishkumarbr/maven-web-application:${buildNumber}"
 }
