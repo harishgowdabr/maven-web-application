@@ -25,10 +25,10 @@ node {
      
      stage ('Deploy App As DockerConatiner in Docker Dev Server')
      {
-     def buildNumber1 = ${buildNumber}-1
+   
          sshagent(['Docker_Server']) {
    sh "ssh -o strictHostKeyChecking=no ubuntu@15.206.168.44 docker rm -f mavenwebapp || true"
-   sh "ssh -o strictHostKeyChecking=no ubuntu@15.206.168.44 docker rmi -f  harishkumarbr/maven-web-application:${buildNumber1}"
+   sh "ssh -o strictHostKeyChecking=no ubuntu@15.206.168.44 docker rmi -f  harishkumarbr/maven-web-application:${buildNumber}"
    sh "ssh -o strictHostKeyChecking=no ubuntu@15.206.168.44 docker run -d -p 7070:8080 --name mavenwebapp harishkumarbr/maven-web-application:${buildNumber}"
 }
      }
