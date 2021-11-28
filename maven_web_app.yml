@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       name: mavenwebapp
-      lables:
+      labels:
         app: javawebapp
     spec:
       containers:
