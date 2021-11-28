@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
        - name: mavenwebapp
-         image: harishkumarbr/maven-web-application:${buildNumber}
+         image: harishkumarbr/maven-web-application:18
          ports:
          - containerPort: 8080
 ---
