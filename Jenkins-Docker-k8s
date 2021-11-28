@@ -22,5 +22,9 @@ node{
                   
          sh "docker push harishkumarbr/maven-web-application:${buildNumber}"
         
+    }//
+    
+    stage("K8s pod"){
+        sh "kubectl apply -f maven_web_app.yml"
     }
 }
