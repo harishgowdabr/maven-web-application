@@ -9,12 +9,12 @@ spec:
     app: mavenwebapp
   template:
     metadata:
-      name: mavenwebapp
+      name: mavenwebapppod
       labels:
-        app: javawebapp
+        app: mavenwebapp
     spec:
       containers:
-      - name: mavenwebapp
+      - name: mavenwebappconatiner
         image: harishkumarbr/maven-web-application:${buildNumber}
         ports:
         - containerPort: 8080
