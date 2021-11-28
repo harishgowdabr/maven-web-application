@@ -1,0 +1,26 @@
+node('dev'){
+    def buildNumber = BUILD_NUMBER
+    stage("Clone the Code")
+    {
+        git credentialsId: '32fa2aa1-2f8d-4f0a-9d6d-8aca681307a4', url: 'https://github.com/harishgowdabr/maven-web-application.git'
+    }//clone
+    
+    stage("Maven-Build"){
+        def maven = tool name: "Maven3.8.3"
+        sh "${maven}/bin/mvn clean package"
+    }//build
+    stage("docker build ")
+    {
+        sh "docker build -t harishkumarbr/maven-web-application:${buildNumber} ."
+        
+    }//build Image
+    stage("Docker login and push"){
+        withCredentials([string(credentialsId: 'Docker_hub_pwd', variable: 'Docker_pwd')]) {
+          sh "docker login -u  harishkumarbr -p ${Docker_pwd}"
+          
+                  }
+                  
+         sh "docker push harishkumarbr/maven-web-application:${buildNumber}"
+        
+    }
+}
