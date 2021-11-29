@@ -25,7 +25,8 @@ node{
     }//
     
     stage("K8s pod"){
-         sh "sed -i 's/BUILD_NUMBER/${buildNumber}/g' maven_web_app.yml"
-        sh "kubectl apply -f maven_web_app.yml"
+         sh "sed -i 's/BUILD_NUMBER/${buildNumber}/g' maven_web_app_rc.yml"
+         sh "echo "started kubectl commands""
+        sh "kubectl apply -f maven_web_app_rc.yml"
     }
 }
