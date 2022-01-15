@@ -37,7 +37,12 @@
         </repositories>
 
 	<dependencies>
-		
+		<!-- test dependencies fot remote repo -->
+		<dependency>
+                      <groupId>com.mss</groupId>
+                      <artifactId>sample</artifactId>
+                      <version>1.0.0</version>
+                    </dependency>
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
