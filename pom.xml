@@ -33,8 +33,7 @@
 		      <id>nexus</id>
                       <name>Proxy Repo</name>
                       <url>http://3.110.165.154:8081/repository/Wallmart-Proxy-repo/</url>
-                </repository>
-  
+                </repository>  
         </repositories>
 
 	<dependencies>
