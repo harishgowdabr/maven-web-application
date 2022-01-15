@@ -29,26 +29,36 @@
 
 	</properties>
 	
+	<!-- repositories should be only 1   so any one to be use  -->
+	<!-- Group   repo -->
+	<repositories>
+			<repository>
+			      <id>nexus</id>
+			      <name>Group Repo</name>
+			      <url>	http://3.110.165.154:8081/repository/mss-group-repo/</url>
+			</repository>  
+	</repositories>
+	<!-- or  proxy   repo
           <repositories>
 		
-			<!-- proxy   repo -->
+			 
 			<repository>
 			      <id>nexus</id>
 			      <name>Proxy Repo</name>
 			      <url>http://3.110.165.154:8081/repository/Wallmart-Proxy-repo/</url>
 			</repository>  
 
-			
-        </repositories>
-	
+		 -->	
+        </repositories>		
+	<!-- or Remote   repo
 	<repositories>
-	<!-- Remote   repo -->
 			<repository>
 			      <id>nexus</id>
 			      <name>Remote  Repo</name>
 			      <url>http://3.110.165.154:8081/repository/mss-remote-repo/</url>
 			</repository>  
-	 </repositories>
+	</repositories>
+    -->
 	<dependencies>
 		<!-- test dependencies for remote repo -->
 		<dependency>
