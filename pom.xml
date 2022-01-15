@@ -5,7 +5,7 @@
 	<groupId>com.mt</groupId>
 	<artifactId>maven-web-application</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.5-SNAPSHOT</version>
 	
 	<name>DEV- env</name>
 
@@ -28,9 +28,21 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 	</properties>
-
+                   <repositories>
+			<repository>
+			      <id>nexus</id>
+			      <name>Group Repo</name>
+			      <url>http://3.110.165.154:8081/repository/mss-group-repo/</url>
+			</repository>  
+	</repositories>
 	<dependencies>
 		
+<dependency>
+  <groupId>com.mss</groupId>
+  <artifactId>mail</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
