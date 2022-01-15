@@ -63,7 +63,7 @@
 		<!-- test dependencies for remote repo -->
 		<dependency>
                       <groupId>com.mss</groupId>
-                      <artifactId>sample</artifactId>
+                      <artifactId>mail</artifactId>
                       <version>1.0.0</version>
                     </dependency>
 		<dependency>
