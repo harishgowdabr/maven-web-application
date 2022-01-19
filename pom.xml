@@ -29,7 +29,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 	</properties>
-<!-- test -->
+
 	<repositories>
 			<repository>
 			      <id>nexus</id>
