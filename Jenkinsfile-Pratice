@@ -1,0 +1,44 @@
+node()
+{ 
+    
+    
+    
+    def mavenHome = tool name: "maven-3.8.2"
+    
+    
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')), parameters([choice(choices: ['master', 'dev', 'qa', 'development'], description: 'Select  Branch Name', name: 'BranchName'), string(defaultValue: 'NA', description: 'Enter Revision Number', name: 'RevisionNumber')]), [$class: 'JobLocalConfiguration', changeReasonComment: ''], pipelineTriggers([githubPush()])])
+    
+    stage('Clone the Code'){
+     
+        sh 'echo "------"'
+        
+        git branch: '${BranchName}', credentialsId: '45ea0ad7-34b3-4ae2-8be8-0b1432262ead',
+        url: 'https://github.com/harishgowdabr/maven-web-application.git'
+
+    }
+        
+        stage('Build the code'){
+        sh "${mavenHome}/bin/mvn clean package -Dmaven.test.skip=true"
+        
+    }//Build
+    
+    stage('Execute Sonar Report'){
+        
+        sh "${mavenHome}/bin/mvn sonar:sonar"
+        
+    }//Sonar
+    stage('Depoy to remote Repo'){
+         sh "${mavenHome}/bin/mvn deploy"
+    }// to nexus
+    
+    stage(' deploy to Conatiner - tomcat'){
+        
+
+      sshagent(['74499b02-e88e-440d-aaaa-0dd9c916e074']) {
+
+      sh "scp -o strictHostKeyChecking=no target/maven*.war  ec2-user@3.109.202.21:/opt/apache-tomcat-9.0.56/webapps/"
+	  
+}//ssh
+        
+    }
+}
