@@ -30,7 +30,7 @@
 	</properties>
 	
 	<!-- repositories should be only 1   so any one to be use  -->
-	<!-- Group   repo -->
+	<!-- Group     repo -->
 	<repositories>
 			<repository>
 			      <id>nexus</id>
