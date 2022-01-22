@@ -7,7 +7,7 @@
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	
-	<name>DEV- env</name>
+	<name>Maven_WEB_APP-DEV- ENV</name>
 
 	<description>Maven Web Project for Java Project</description>
 
