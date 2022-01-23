@@ -12,11 +12,11 @@ options {
 
 triggers{
 	//Poll SCM
-	//pollSCM('* * * * *')
+	pollSCM('* * * * *')
 	//BuildPeriodically
 	//cron('* * * * *')
 	//GitHub WebHook
-	githubPush()
+	//githubPush()
 }
 parameters {
   choice choices: ['master', 'dev', 'qa'], description: 'Please  select Branch name', name: 'BranchName'
