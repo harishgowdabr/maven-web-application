@@ -40,7 +40,7 @@ maven 'maven-3.8.2'
        step{
         sshagent(['74499b02-e88e-440d-aaaa-0dd9c916e074']) {
 
-      sh "scp -o strictHostKeyChecking=no target/maven*.war 
+      sh "scp -o strictHostKeyChecking=no target/maven-web-application.war 
 	  ec2-user@3.109.202.21:/opt/apache-tomcat-9.0.56/webapps/"
      }//shh
      }//step
