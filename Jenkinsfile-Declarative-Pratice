@@ -1,0 +1,43 @@
+pipeline{
+
+agent any
+tools {
+maven 'maven-3.8.2'
+}
+    stages{
+        stage('Cloning the code'){
+            steps{
+                 sh 'echo "---cloning the code from Github---"'
+        
+        git branch: '${BranchName}', credentialsId: '45ea0ad7-34b3-4ae2-8be8-0b1432262ead',
+        url: 'https://github.com/harishgowdabr/maven-web-application.git'
+
+            
+            }//step
+        }//stage
+
+        stage('Building the war file'){
+        steps{
+        sh "mvn clean package -DMaven.test.skip=true"
+        //mvn clean package -Dskip.Tests
+        }
+        }
+        
+        stage('sonar Report'){
+        steps{
+        sh "mvn  sonar:sonar"
+     
+        }
+        }
+        
+        stage('INTO Remot Repo'){
+        steps{
+        sh "mvn clean deploy"
+     
+        }
+        }
+        
+        
+        
+    }//stages
+}//pipeline
