@@ -25,6 +25,7 @@ maven 'maven-3.8.2'
         
         stage('sonar Report'){
         steps{
+	sh "pwd"
         sh "mvn  sonar:sonar"
      
         }
@@ -32,16 +33,16 @@ maven 'maven-3.8.2'
         
         stage('INTO Remot Repo'){
         steps{
+	sh "pwd"
         sh "mvn clean deploy"
      
         }
         }
-        stage  ('Depoying to Tomcat'){
-       step{
+        stage ('Depoying to Tomcat'){
+       steps{
         sshagent(['74499b02-e88e-440d-aaaa-0dd9c916e074']) {
-
-      sh "scp -o strictHostKeyChecking=no target/maven-web-application.war 
-	  ec2-user@3.109.202.21:/opt/apache-tomcat-9.0.56/webapps/"
+                    sh "pwd"
+      sh "scp -o strictHostKeyChecking=no target/maven-web-application.war ec2-user@3.109.202.21:/opt/apache-tomcat-9.0.56/webapps/"
      }//shh
      }//step
      }//stage
