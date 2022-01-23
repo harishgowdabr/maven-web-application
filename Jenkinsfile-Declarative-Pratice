@@ -22,8 +22,6 @@ parameters {
   choice choices: ['master', 'dev', 'qa'], description: 'Please  select Branch name', name: 'BranchName'
   string defaultValue: 'NA', description: 'Please enter RevisionNumber', name: 'RevisionNumber', trim: true
 }
-
-
     stages{
         stage('Cloning the code'){
             steps{
