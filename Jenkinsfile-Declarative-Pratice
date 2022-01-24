@@ -10,14 +10,14 @@ options {
   timestamps()
 }
 
-triggers{
+/*triggers{
 	//Poll SCM
 	//pollSCM('* * * * *')
 	//BuildPeriodically
 	//cron('* * * * *')
 	//GitHub WebHook
 	//githubPush()
-}
+}*/
 parameters {
   choice choices: ['master', 'dev', 'qa'], description: 'Please  select Branch name', name: 'BranchName'
   string defaultValue: 'NA', description: 'Please enter RevisionNumber', name: 'RevisionNumber', trim: true
@@ -49,14 +49,14 @@ parameters {
      
         }
         }
-        
+     /*   
         stage('INTO Remot Repo'){
         steps{
 	sh "pwd"
         sh "mvn clean deploy"
      
         }
-        }
+        }*/
         stage ('Depoying to Tomcat'){
        steps{
         sshagent(['74499b02-e88e-440d-aaaa-0dd9c916e074']) {
