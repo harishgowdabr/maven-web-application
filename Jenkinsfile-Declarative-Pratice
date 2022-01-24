@@ -12,7 +12,7 @@ options {
 
 triggers{
 	//Poll SCM
-	pollSCM('* * * * *')
+	//pollSCM('* * * * *')
 	//BuildPeriodically
 	//cron('* * * * *')
 	//GitHub WebHook
